@@ -4,8 +4,8 @@ local w = library:CreateWindow("A") -- Creates the window
 
 local b = w:CreateFolder("B") -- Creates the folder (You will put your buttons, etc., here)
 
-b:Label("CLASSY#6224 MADE THIS SHIT", {
-    TextSize = 12;
+b:Label("Pretty Useless NGL", {
+    TextSize = 25;
     TextColor = Color3.fromRGB(255, 255, 255);
     BgColor = Color3.fromRGB(69, 69, 69);
 })
@@ -15,7 +15,8 @@ local toggleRebirth = false
 local toggleAscend = false
 local toggleTrails = false
 
-local rebirthWaitTime = 5 -- Adjust the wait time for REBIRTH toggle
+local rollWaitTime = 5 -- Adjust the wait time for ROLL toggle
+local rebirthWaitTime = 20 -- Adjust the wait time for REBIRTH toggle
 local assSendWaitTime = 20 -- Adjust the wait time for ASS SEND toggle
 
 b:Toggle("Toggle ROLL", function(bool)
@@ -41,6 +42,7 @@ end)
 -- Main loop to handle actions based on toggles
 while wait(1) do
     if toggleOpenS then
+        wait(rollWaitTime)
         game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Open_S"):FireServer()
     end
 
