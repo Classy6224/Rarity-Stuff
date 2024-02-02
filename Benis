@@ -1,34 +1,64 @@
 local library = loadstring(game:HttpGet(('https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/wall%20v3')))()
 
-local w = library:CreateWindow("A")
-local b = w:CreateFolder("B")
+local w = library:CreateWindow("A") -- Creates the window
 
--- Money Roll Toggle
-local toggleMoneyRoll = false
+local b = w:CreateFolder("B") -- Creates the folder (You will put your buttons, etc., here)
 
-b:Toggle("Toggle Money Roll", function(bool)
-    toggleMoneyRoll = bool
-    print("Toggle Money Roll:", toggleMoneyRoll)
-    
-    while toggleMoneyRoll do
-        game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Open_S"):FireServer()
-        wait(1) -- You may adjust the wait time as needed
-    end
-end)
+b:Label("CLASSY#6224 MADE THIS SHIT", {
+    TextSize = 19;
+    TextColor = Color3.fromRGB(255, 255, 255);
+    BgColor = Color3.fromRGB(69, 69, 69);
+})
 
--- Rebirth Toggle
+local toggleOpenS = false
 local toggleRebirth = false
+local toggleAscend = false
+local toggleTrails = false
 
-b:Toggle("Toggle Rebirth", function(bool)
-    toggleRebirth = bool
-    print("Toggle Rebirth:", toggleRebirth)
-    
-    while toggleRebirth do
-        game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Rebirth"):WaitForChild("PurchaseRebirth"):FireServer()
-        wait(1) -- You may adjust the wait time as needed
-    end
+local rebirthWaitTime = 20 -- Adjust the wait time for REBIRTH toggle
+local assSendWaitTime = 20 -- Adjust the wait time for ASS SEND toggle
+
+b:Toggle("Toggle ROLL", function(bool)
+    toggleOpenS = bool
+    print("Toggle ROLL:", toggleOpenS)
 end)
 
--- Rest of your UI elements (buttons, sliders, etc.)
+b:Toggle("Toggle REBIRTH", function(bool)
+    toggleRebirth = bool
+    print("Toggle REBIRTH:", toggleRebirth)
+end)
 
-b:DestroyGui()
+b:Toggle("Toggle ASS SEND", function(bool)
+    toggleAscend = bool
+    print("Toggle ASS SEND:", toggleAscend)
+end)
+
+b:Toggle("Toggle TRAILS PLEASE X5", function(bool)
+    toggleTrails = bool
+    print("Toggle TRAILS PLEASE X5:", toggleTrails)
+end)
+
+-- Main loop to handle actions based on toggles
+while wait(1) do
+    if toggleOpenS then
+        game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Open_S"):FireServer()
+    end
+
+    if toggleRebirth then
+        wait(rebirthWaitTime)
+        game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Rebirth"):WaitForChild("PurchaseRebirth"):FireServer()
+    end
+
+    if toggleAscend then
+        wait(assSendWaitTime)
+        game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Ascend"):WaitForChild("PurchaseAscension"):FireServer()
+    end
+
+    if toggleTrails then
+        local args = {
+            [1] = 2
+        }
+
+        game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Buy_TraitReroll"):FireServer(unpack(args))
+    end
+end
