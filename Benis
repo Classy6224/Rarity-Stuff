@@ -48,11 +48,11 @@ end, 1) -- Set the delay for "ASS SEND" toggle to 1 second
 
 ToggleAction("TRAILS PLEASE X5", function()
     game:GetService("ReplicatedStorage").Remotes.Buy_TraitReroll:FireServer(2)
-end, 10) -- Set the delay for "TRAILS PLEASE X5" toggle to 10 seconds
+end, 6) -- Set the delay for "TRAILS PLEASE X5" toggle to 10 seconds
 
 ToggleAction("OPEN ASS EGGS", function()
     game:GetService("ReplicatedStorage").Remotes.Open_Crate:FireServer("Dev Crate", 6)
-end, 1) -- Set the delay for "OPEN ASS EGGS" toggle to 1 second
+end, .1) -- Set the delay for "OPEN ASS EGGS" toggle to 1 second
 
 while wait(1) do
     library:Render()
