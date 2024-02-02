@@ -5,7 +5,7 @@ local w = library:CreateWindow("A") -- Creates the window
 local b = w:CreateFolder("B") -- Creates the folder (You will put your buttons, etc., here)
 
 b:Label("CLASSY#6224 MADE THIS SHIT", {
-    TextSize = 19;
+    TextSize = 12;
     TextColor = Color3.fromRGB(255, 255, 255);
     BgColor = Color3.fromRGB(69, 69, 69);
 })
@@ -15,7 +15,7 @@ local toggleRebirth = false
 local toggleAscend = false
 local toggleTrails = false
 
-local rebirthWaitTime = 20 -- Adjust the wait time for REBIRTH toggle
+local rebirthWaitTime = 5 -- Adjust the wait time for REBIRTH toggle
 local assSendWaitTime = 20 -- Adjust the wait time for ASS SEND toggle
 
 b:Toggle("Toggle ROLL", function(bool)
