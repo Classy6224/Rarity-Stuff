@@ -1,8 +1,6 @@
 local library = loadstring(game:HttpGet('https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/wall%20v3'))()
-
-local w = library:CreateWindow("CLASSY#6224 EATS A$$") -- Creates the window
-
-local b = w:CreateFolder("Click here please xx") -- Creates the folder (You will put your buttons, etc., here)
+local w = library:CreateWindow("CLASSY#6224 EATS A$$")
+local b = w:CreateFolder("Click here please xx")
 
 b:Label("Classy#6224 MADE THIS SHIT", {
     TextSize = 14,
@@ -10,12 +8,16 @@ b:Label("Classy#6224 MADE THIS SHIT", {
     BgColor = Color3.fromRGB(69, 69, 69)
 })
 
+b:Button("BasedGaming's Button", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/2dgeneralspam1/scripts-and-stuff/master/scripts/LoadstringypVvhJBq4QNz", true))()
+end)
+
 local toggles = {}
 
 local function PerformAction(actionFunction, delay)
     while toggles[actionFunction] do
         actionFunction()
-        wait(delay) -- Adjust the wait time as needed
+        wait(delay)
     end
 end
 
@@ -27,7 +29,7 @@ local function ToggleAction(name, actionFunction, delay)
             spawn(function()
                 while toggles[actionFunction] do
                     PerformAction(actionFunction, delay)
-                    wait(1) -- Avoids running the loop too quickly
+                    wait(1)
                 end
             end)
         end
@@ -36,23 +38,27 @@ end
 
 ToggleAction("ROLL", function()
     game:GetService("ReplicatedStorage").Remotes.Open_S:FireServer()
-end, 1) -- Set the delay for "ROLL" toggle to 1 second
+end, 1)
 
 ToggleAction("REBIRTH", function()
     game:GetService("ReplicatedStorage").Remotes.Rebirth.PurchaseRebirth:FireServer()
-end, 17) -- Set the delay for "REBIRTH" toggle to 17 seconds
+end, 17)
 
 ToggleAction("ASS SEND", function()
     game:GetService("ReplicatedStorage").Remotes.Ascend.PurchaseAscension:FireServer()
-end, 1) -- Set the delay for "ASS SEND" toggle to 1 second
+end, 1)
 
 ToggleAction("TRAILS PLEASE X5", function()
-    game:GetService("ReplicatedStorage").Remotes.Buy_TraitReroll:FireServer(2)
-end, 6) -- Set the delay for "TRAILS PLEASE X5" toggle to 10 seconds
+    game:GetService("ReplicatedStorage").Remotes.Buy_TraitReroll:FireServer(1)
+end, 6)
 
 ToggleAction("OPEN ASS EGGS", function()
     game:GetService("ReplicatedStorage").Remotes.Open_Crate:FireServer("Dev Crate", 6)
-end, .1) -- Set the delay for "OPEN ASS EGGS" toggle to 1 second
+end, 0.1)
+
+ToggleAction("OPEN nightmare EGGS", function()
+    game:GetService("ReplicatedStorage").Remotes.Open_Crate:FireServer("Nightmare Crate", 1)
+end, 0.1)
 
 while wait(1) do
     library:Render()
